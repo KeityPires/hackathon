@@ -1,0 +1,13 @@
+names:
+  0: user
+  1: internet
+  2: identity_provider
+  3: gateway
+  4: firewall
+  5: load_balancer
+  6: api
+  7: server
+  8: database
+  9: cache
+  10: queue
+  11: storage

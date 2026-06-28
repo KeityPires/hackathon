@@ -1,0 +1,184 @@
+{
+  "user": {
+    "Spoofing": [
+      "Usuário pode tentar se passar por outro usuário."
+    ],
+    "Repudiation": [
+      "Usuário pode negar uma ação realizada."
+    ],
+    "mitigations": [
+      "MFA",
+      "logs de auditoria",
+      "controle de sessão"
+    ]
+  },
+  "internet": {
+    "Denial of Service": [
+      "Origem de tráfego malicioso ou volumétrico."
+    ],
+    "Spoofing": [
+      "Origem pode ser falsificada."
+    ],
+    "mitigations": [
+      "proteção DDoS",
+      "WAF",
+      "rate limiting"
+    ]
+  },
+  "identity_provider": {
+    "Spoofing": [
+      "Ataques contra autenticação e tokens."
+    ],
+    "Elevation of Privilege": [
+      "Permissões excessivas ou grupos incorretos."
+    ],
+    "mitigations": [
+      "MFA",
+      "rotação de chaves",
+      "menor privilégio"
+    ]
+  },
+  "gateway": {
+    "Spoofing": [
+      "Requisições falsas podem tentar acessar APIs internas."
+    ],
+    "Tampering": [
+      "Alteração de payloads em trânsito."
+    ],
+    "Denial of Service": [
+      "Sobrecarga por alto volume de requisições."
+    ],
+    "mitigations": [
+      "OAuth2",
+      "JWT assinado",
+      "rate limiting",
+      "TLS"
+    ]
+  },
+  "firewall": {
+    "Tampering": [
+      "Regras mal configuradas podem permitir tráfego indevido."
+    ],
+    "Information Disclosure": [
+      "Exposição indevida de portas e serviços."
+    ],
+    "mitigations": [
+      "regras restritivas",
+      "WAF",
+      "hardening"
+    ]
+  },
+  "load_balancer": {
+    "Denial of Service": [
+      "Ponto de concentração de tráfego pode ser alvo de DoS."
+    ],
+    "Information Disclosure": [
+      "Headers podem revelar detalhes internos."
+    ],
+    "mitigations": [
+      "auto scaling",
+      "health checks",
+      "proteção DDoS"
+    ]
+  },
+  "api": {
+    "Spoofing": [
+      "Chamadas não autenticadas podem acessar endpoints."
+    ],
+    "Tampering": [
+      "Manipulação de parâmetros e payloads."
+    ],
+    "Information Disclosure": [
+      "APIs podem retornar dados excessivos."
+    ],
+    "Elevation of Privilege": [
+      "Falhas de autorização podem permitir privilégios indevidos."
+    ],
+    "mitigations": [
+      "autenticação forte",
+      "RBAC",
+      "validação de entrada",
+      "OWASP API Security"
+    ]
+  },
+  "server": {
+    "Tampering": [
+      "Alteração indevida de arquivos ou configuração."
+    ],
+    "Elevation of Privilege": [
+      "Exploração de vulnerabilidades para elevar privilégios."
+    ],
+    "Denial of Service": [
+      "Consumo excessivo de CPU ou memória."
+    ],
+    "mitigations": [
+      "patching",
+      "hardening",
+      "menor privilégio",
+      "monitoramento"
+    ]
+  },
+  "database": {
+    "Spoofing": [
+      "Acesso com credenciais comprometidas."
+    ],
+    "Tampering": [
+      "Alteração não autorizada de registros."
+    ],
+    "Information Disclosure": [
+      "Vazamento de dados sensíveis."
+    ],
+    "Denial of Service": [
+      "Sobrecarga de consultas."
+    ],
+    "mitigations": [
+      "criptografia em repouso",
+      "backup",
+      "IAM",
+      "auditoria"
+    ]
+  },
+  "cache": {
+    "Information Disclosure": [
+      "Dados sensíveis podem ficar armazenados em cache."
+    ],
+    "Tampering": [
+      "Alteração de chaves ou valores em cache."
+    ],
+    "mitigations": [
+      "TTL",
+      "criptografia",
+      "controle de acesso"
+    ]
+  },
+  "queue": {
+    "Tampering": [
+      "Mensagens podem ser alteradas ou injetadas."
+    ],
+    "Repudiation": [
+      "Produtor pode negar envio de mensagem."
+    ],
+    "Denial of Service": [
+      "Acúmulo de mensagens pode indisponibilizar o fluxo."
+    ],
+    "mitigations": [
+      "assinatura de mensagens",
+      "DLQ",
+      "controle de acesso"
+    ]
+  },
+  "storage": {
+    "Information Disclosure": [
+      "Buckets ou arquivos podem ficar públicos."
+    ],
+    "Tampering": [
+      "Arquivos podem ser alterados indevidamente."
+    ],
+    "mitigations": [
+      "políticas privadas",
+      "versionamento",
+      "criptografia",
+      "logs de acesso"
+    ]
+  }
+}

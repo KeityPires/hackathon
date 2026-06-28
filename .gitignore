@@ -1,0 +1,35 @@
+# Ambiente virtual
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# VS Code
+.vscode/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Modelos treinados
+models/*.pt
+runs/
+
+# Dados grandes
+data/raw/
+data/external/
+
+# Dataset gerado (opcional)
+# Se o dataset for muito grande, não envie para o GitHub
+data/processed/dataset_v2/
+
+# Relatórios
+reports/*.pdf
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Variáveis de ambiente
+.env
