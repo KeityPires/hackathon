@@ -20,9 +20,9 @@ runs/
 data/raw/
 data/external/
 
-# Dataset gerado (opcional)
-# Se o dataset for muito grande, não envie para o GitHub
+# Dataset gerado
 data/processed/dataset_v2/
+data/processed/dataset_v3/
 
 # Relatórios
 reports/*.pdf

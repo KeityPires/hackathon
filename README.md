@@ -58,6 +58,7 @@ fiap-threat-model-ai/
 │   └── utils/
 ├── tests/
 ├── training/
+├── tools/
 ├── README.md
 ├── requirements.txt
 └── .gitignore
