@@ -1,184 +1,244 @@
 {
   "user": {
     "Spoofing": [
-      "Usuário pode tentar se passar por outro usuário."
+      "Um usuário malicioso pode tentar se passar por outro usuário."
     ],
     "Repudiation": [
-      "Usuário pode negar uma ação realizada."
+      "O usuário pode negar ações realizadas no sistema."
     ],
     "mitigations": [
-      "MFA",
-      "logs de auditoria",
-      "controle de sessão"
+      "Autenticação Multifator (MFA)",
+      "Logs de auditoria",
+      "Controle de sessão"
     ]
   },
+
   "internet": {
+    "Spoofing": [
+      "A origem das requisições pode ser falsificada."
+    ],
     "Denial of Service": [
-      "Origem de tráfego malicioso ou volumétrico."
-    ],
-    "Spoofing": [
-      "Origem pode ser falsificada."
+      "A aplicação pode sofrer ataques volumétricos provenientes da Internet."
     ],
     "mitigations": [
-      "proteção DDoS",
-      "WAF",
-      "rate limiting"
+      "Proteção DDoS",
+      "Rate Limiting",
+      "Firewall"
     ]
   },
-  "identity_provider": {
-    "Spoofing": [
-      "Ataques contra autenticação e tokens."
+
+  "firewall": {
+    "Tampering": [
+      "Regras podem ser alteradas indevidamente."
     ],
-    "Elevation of Privilege": [
-      "Permissões excessivas ou grupos incorretos."
+    "Information Disclosure": [
+      "Configurações incorretas podem expor serviços internos."
     ],
     "mitigations": [
-      "MFA",
-      "rotação de chaves",
-      "menor privilégio"
+      "Hardening",
+      "Revisão periódica das regras",
+      "Princípio do menor privilégio"
     ]
   },
-  "gateway": {
+
+  "waf": {
+    "Tampering": [
+      "Regras do WAF podem ser alteradas ou desabilitadas."
+    ],
+    "Denial of Service": [
+      "O WAF pode ser sobrecarregado por ataques de grande volume."
+    ],
+    "mitigations": [
+      "Atualização contínua das assinaturas",
+      "Proteção DDoS",
+      "Monitoramento contínuo"
+    ]
+  },
+
+  "load_balancer": {
+    "Denial of Service": [
+      "O balanceador pode ser alvo de ataques de negação de serviço."
+    ],
+    "Information Disclosure": [
+      "Cabeçalhos HTTP podem revelar informações internas."
+    ],
+    "mitigations": [
+      "Auto Scaling",
+      "Health Checks",
+      "Proteção DDoS"
+    ]
+  },
+
+  "api_gateway": {
     "Spoofing": [
       "Requisições falsas podem tentar acessar APIs internas."
     ],
     "Tampering": [
-      "Alteração de payloads em trânsito."
+      "Payloads podem ser modificados durante a comunicação."
     ],
     "Denial of Service": [
-      "Sobrecarga por alto volume de requisições."
+      "Grande volume de requisições pode indisponibilizar o gateway."
     ],
     "mitigations": [
       "OAuth2",
       "JWT assinado",
-      "rate limiting",
-      "TLS"
+      "TLS",
+      "Rate Limiting"
     ]
   },
-  "firewall": {
+
+  "web_server": {
     "Tampering": [
-      "Regras mal configuradas podem permitir tráfego indevido."
+      "Arquivos e configurações do servidor podem ser alterados."
     ],
-    "Information Disclosure": [
-      "Exposição indevida de portas e serviços."
+    "Elevation of Privilege": [
+      "Exploração de vulnerabilidades pode conceder privilégios elevados."
     ],
-    "mitigations": [
-      "regras restritivas",
-      "WAF",
-      "hardening"
-    ]
-  },
-  "load_balancer": {
     "Denial of Service": [
-      "Ponto de concentração de tráfego pode ser alvo de DoS."
-    ],
-    "Information Disclosure": [
-      "Headers podem revelar detalhes internos."
+      "Consumo excessivo de recursos pode indisponibilizar o serviço."
     ],
     "mitigations": [
-      "auto scaling",
-      "health checks",
-      "proteção DDoS"
+      "Hardening",
+      "Atualização de patches",
+      "Monitoramento"
     ]
   },
-  "api": {
+
+  "application_server": {
+    "Tampering": [
+      "Código ou configurações podem ser modificados indevidamente."
+    ],
+    "Elevation of Privilege": [
+      "Falhas de autorização podem permitir escalonamento de privilégios."
+    ],
+    "Denial of Service": [
+      "Ataques podem consumir CPU e memória do servidor."
+    ],
+    "mitigations": [
+      "Controle de acesso",
+      "Hardening",
+      "Atualização de software"
+    ]
+  },
+
+  "microservice": {
     "Spoofing": [
-      "Chamadas não autenticadas podem acessar endpoints."
+      "Um serviço pode se passar por outro dentro da arquitetura."
     ],
     "Tampering": [
-      "Manipulação de parâmetros e payloads."
+      "Mensagens entre microsserviços podem ser alteradas."
     ],
     "Information Disclosure": [
-      "APIs podem retornar dados excessivos."
-    ],
-    "Elevation of Privilege": [
-      "Falhas de autorização podem permitir privilégios indevidos."
+      "APIs internas podem expor informações sensíveis."
     ],
     "mitigations": [
-      "autenticação forte",
-      "RBAC",
-      "validação de entrada",
-      "OWASP API Security"
+      "mTLS",
+      "JWT",
+      "Service Mesh",
+      "Autenticação entre serviços"
     ]
   },
-  "server": {
-    "Tampering": [
-      "Alteração indevida de arquivos ou configuração."
-    ],
-    "Elevation of Privilege": [
-      "Exploração de vulnerabilidades para elevar privilégios."
-    ],
-    "Denial of Service": [
-      "Consumo excessivo de CPU ou memória."
-    ],
-    "mitigations": [
-      "patching",
-      "hardening",
-      "menor privilégio",
-      "monitoramento"
-    ]
-  },
+
   "database": {
     "Spoofing": [
-      "Acesso com credenciais comprometidas."
+      "Credenciais comprometidas podem permitir acesso ao banco."
     ],
     "Tampering": [
-      "Alteração não autorizada de registros."
+      "Registros podem ser alterados sem autorização."
     ],
     "Information Disclosure": [
-      "Vazamento de dados sensíveis."
+      "Dados sensíveis podem ser expostos."
     ],
     "Denial of Service": [
-      "Sobrecarga de consultas."
+      "Consultas maliciosas podem indisponibilizar o banco."
     ],
     "mitigations": [
-      "criptografia em repouso",
-      "backup",
-      "IAM",
-      "auditoria"
+      "Criptografia",
+      "Controle de acesso",
+      "Auditoria",
+      "Backups"
     ]
   },
+
   "cache": {
     "Information Disclosure": [
-      "Dados sensíveis podem ficar armazenados em cache."
+      "Dados sensíveis podem permanecer armazenados em cache."
     ],
     "Tampering": [
-      "Alteração de chaves ou valores em cache."
+      "Entradas de cache podem ser modificadas."
     ],
     "mitigations": [
       "TTL",
-      "criptografia",
-      "controle de acesso"
+      "Criptografia",
+      "Controle de acesso"
     ]
   },
+
   "queue": {
     "Tampering": [
       "Mensagens podem ser alteradas ou injetadas."
     ],
     "Repudiation": [
-      "Produtor pode negar envio de mensagem."
+      "Produtores podem negar o envio de mensagens."
     ],
     "Denial of Service": [
-      "Acúmulo de mensagens pode indisponibilizar o fluxo."
+      "Filas podem ser sobrecarregadas."
     ],
     "mitigations": [
-      "assinatura de mensagens",
-      "DLQ",
-      "controle de acesso"
+      "Assinatura digital",
+      "Dead Letter Queue (DLQ)",
+      "Controle de acesso"
     ]
   },
-  "storage": {
+
+  "object_storage": {
     "Information Disclosure": [
-      "Buckets ou arquivos podem ficar públicos."
+      "Objetos podem ficar acessíveis publicamente."
     ],
     "Tampering": [
-      "Arquivos podem ser alterados indevidamente."
+      "Arquivos armazenados podem ser modificados."
     ],
     "mitigations": [
-      "políticas privadas",
-      "versionamento",
-      "criptografia",
-      "logs de acesso"
+      "Buckets privados",
+      "Versionamento",
+      "Criptografia",
+      "Logs de acesso"
+    ]
+  },
+
+  "identity_provider": {
+    "Spoofing": [
+      "Ataques contra autenticação e emissão de tokens."
+    ],
+    "Elevation of Privilege": [
+      "Permissões excessivas podem conceder acesso indevido."
+    ],
+    "Information Disclosure": [
+      "Credenciais ou tokens podem ser expostos."
+    ],
+    "mitigations": [
+      "MFA",
+      "OAuth2/OpenID Connect",
+      "Rotação de chaves",
+      "Princípio do menor privilégio"
+    ]
+  },
+
+  "monitoring": {
+    "Repudiation": [
+      "Ausência de registros pode dificultar auditorias."
+    ],
+    "Information Disclosure": [
+      "Logs podem conter informações sensíveis."
+    ],
+    "Tampering": [
+      "Logs podem ser alterados ou apagados."
+    ],
+    "mitigations": [
+      "Logs imutáveis",
+      "Controle de acesso",
+      "SIEM",
+      "Retenção de logs"
     ]
   }
 }
