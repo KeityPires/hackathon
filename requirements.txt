@@ -1,7 +1,7 @@
 # ==========================
 # IA / Visão Computacional
 # ==========================
-ultralytics>=8.3.0
+ultralytics>=8.4.0
 
 # ==========================
 # Interface
@@ -12,7 +12,7 @@ streamlit>=1.44.0
 # Processamento de Imagens
 # ==========================
 opencv-python>=4.11.0
-pillow>=11.1.0
+Pillow>=11.1.0
 
 # ==========================
 # Manipulação de Dados
@@ -24,7 +24,7 @@ pandas>=2.2.3
 # Utilidades
 # ==========================
 python-dotenv>=1.1.0
-pyyaml>=6.0.2
+PyYAML>=6.0.2
 
 # ==========================
 # Relatórios
@@ -37,6 +37,6 @@ fpdf2>=2.8.2
 matplotlib>=3.10.0
 
 # ==========================
-# Desenvolvimento
+# Desenvolvimento e Testes
 # ==========================
 pytest>=8.3.5
