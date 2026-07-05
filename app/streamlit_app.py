@@ -51,3 +51,7 @@ if uploaded_file:
             except FileNotFoundError as error:
                 st.error(str(error))
                 st.info("Treine o modelo primeiro e copie o arquivo best.pt para models/best.pt.")
+
+            except Exception as error:
+                st.error("Ocorreu um erro durante a análise.")
+                st.exception(error)
