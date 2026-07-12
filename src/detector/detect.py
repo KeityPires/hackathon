@@ -5,7 +5,7 @@ import cv2
 from ultralytics import YOLO
 
 
-DEFAULT_MODEL_PATH = Path("models/best.pt")
+DEFAULT_MODEL_PATH = Path("models/best_v2.pt")
 
 
 def load_model(model_path: str | Path = DEFAULT_MODEL_PATH) -> YOLO:
@@ -14,7 +14,7 @@ def load_model(model_path: str | Path = DEFAULT_MODEL_PATH) -> YOLO:
     if not model_path.exists():
         raise FileNotFoundError(
             f"Modelo não encontrado em {model_path}. "
-            "Treine o YOLO e copie best.pt para models/."
+            "Treine o YOLO e copie best_v2.pt para models/."
         )
 
     return YOLO(str(model_path))

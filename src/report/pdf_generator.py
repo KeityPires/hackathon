@@ -50,7 +50,7 @@ def generate_pdf(report_items, output_path="reports/threat_model_report.pdf"):
         pdf.cell(
             0,
             8,
-            f"Ameaca {index}",
+            f"Ameaça {index}",
             new_x="LMARGIN",
             new_y="NEXT",
         )
@@ -59,9 +59,9 @@ def generate_pdf(report_items, output_path="reports/threat_model_report.pdf"):
 
         write_text(pdf, f"Componente: {item['component']}")
         write_text(pdf, f"Categoria STRIDE: {item['stride']}")
-        write_text(pdf, f"Descricao da ameaca: {item['threat']}")
+        write_text(pdf, f"Descrição da ameaça: {item['threat']}")
         write_text(pdf, f"Severidade: {item['severity']}")
-        write_text(pdf, "Mitigacoes recomendadas:")
+        write_text(pdf, "Mitigações recomendadas:")
 
         for mitigation in item["mitigations"]:
             write_text(pdf, f"- {mitigation}")

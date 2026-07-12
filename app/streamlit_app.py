@@ -50,7 +50,7 @@ if uploaded_file:
 
             except FileNotFoundError as error:
                 st.error(str(error))
-                st.info("Treine o modelo primeiro e copie o arquivo best.pt para models/best.pt.")
+                st.info("Treine o modelo primeiro e copie o arquivo best_v2.pt para models/best_v2.pt.")
 
             except Exception as error:
                 st.error("Ocorreu um erro durante a análise.")

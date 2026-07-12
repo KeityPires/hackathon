@@ -5,7 +5,7 @@ from src.stride.analyzer import analyze_stride
 from src.report.pdf_generator import generate_pdf
 
 
-image_path = Path("tests/assets/arch_0598_test.png")
+image_path = Path("tests/assets/arch_0044_test.png")
 
 detections = detect_components(image_path)
 report_items = analyze_stride(detections)
