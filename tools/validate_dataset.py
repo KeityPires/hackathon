@@ -1,7 +1,7 @@
 from pathlib import Path
 from collections import Counter
 
-DATASET = Path("data/processed/dataset_v4")
+DATASET = Path("data/processed/dataset_v5")
 
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg"}
 

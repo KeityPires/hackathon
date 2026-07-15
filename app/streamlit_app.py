@@ -17,7 +17,7 @@ st.title("FIAP Threat Model AI")
 st.write("Upload de uma imagem de arquitetura para identificar componentes e gerar relatório STRIDE.")
 
 uploaded_file = st.file_uploader("Envie uma imagem PNG/JPG", type=["png", "jpg", "jpeg"])
-confidence = st.slider("Confiança mínima", 0.05, 0.95, 0.25, 0.05)
+confidence = st.slider("Confiança mínima", 0.05, 0.95, 0.50, 0.05)
 
 if uploaded_file:
     with tempfile.TemporaryDirectory() as tmp:
@@ -50,7 +50,7 @@ if uploaded_file:
 
             except FileNotFoundError as error:
                 st.error(str(error))
-                st.info("Treine o modelo primeiro e copie o arquivo best_v2.pt para models/best_v2.pt.")
+                st.info("Treine o modelo primeiro e copie o arquivo best_v3.pt para models/best_v3.pt.")
 
             except Exception as error:
                 st.error("Ocorreu um erro durante a análise.")

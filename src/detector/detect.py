@@ -5,7 +5,7 @@ import cv2
 from ultralytics import YOLO
 
 
-DEFAULT_MODEL_PATH = Path("models/best_v2.pt")
+DEFAULT_MODEL_PATH = Path("models/best_v3.pt")
 
 
 def load_model(model_path: str | Path = DEFAULT_MODEL_PATH) -> YOLO:

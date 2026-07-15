@@ -2,7 +2,9 @@
 
 Projeto desenvolvido para a **5ª fase da Pós Tech em Inteligência Artificial da FIAP**.
 
-O objetivo é automatizar parte do processo de **Modelagem de Ameaças (Threat Modeling)** utilizando **Visão Computacional** e **Inteligência Artificial**, identificando componentes em diagramas de arquitetura de software e gerando uma análise baseada no modelo **STRIDE**.
+O objetivo é automatizar parte do processo de **Modelagem de Ameaças (Threat Modeling)** utilizando **Visão Computacional**, identificando automaticamente componentes em diagramas de arquitetura de software por meio do **YOLOv8**, realizando uma análise baseada no modelo **STRIDE** e gerando um relatório técnico em PDF.
+
+O projeto foi desenvolvido sem a utilização de modelos de linguagem (LLMs), mantendo o foco em **Visão Computacional + regras STRIDE**, conforme o escopo proposto.
 
 ---
 
@@ -10,7 +12,7 @@ O objetivo é automatizar parte do processo de **Modelagem de Ameaças (Threat M
 
 ```text
                 +----------------------+
-                | Arquitetura (PNG)    |
+                | Arquitetura (PNG/JPG)|
                 +----------+-----------+
                            |
                            v
@@ -41,12 +43,11 @@ O objetivo é automatizar parte do processo de **Modelagem de Ameaças (Threat M
 fiap-threat-model-ai/
 │
 ├── app/                 # Interface Streamlit
-├── config/              # Configurações
+├── config/
 ├── data/
 │   ├── raw/
 │   ├── external/
 │   └── processed/
-│       └── dataset_v3/
 ├── docs/
 ├── models/
 ├── notebooks/
@@ -68,14 +69,14 @@ fiap-threat-model-ai/
 
 # Tecnologias Utilizadas
 
-* Python 3.13
-* YOLOv8 (Ultralytics)
-* OpenCV
-* Pillow
-* Streamlit
-* Pandas
-* NumPy
-* FPDF2
+- Python 3.13
+- YOLOv8 (Ultralytics)
+- OpenCV
+- Pillow
+- Streamlit
+- Pandas
+- NumPy
+- FPDF2
 
 ---
 
@@ -118,14 +119,16 @@ pip install -r requirements.txt
 
 # Dataset
 
-O projeto utiliza um dataset sintético gerado especificamente para este trabalho.
+O modelo foi treinado utilizando um **dataset sintético próprio**, desenvolvido especificamente para este projeto.
 
-A estrutura esperada é:
+O dataset é gerado automaticamente pelo projeto **FIAP Dataset Generator**, sendo composto por diagramas contendo componentes genéricos, AWS e Microsoft Azure.
+
+Estrutura esperada:
 
 ```text
 data/
 └── processed/
-    └── dataset_v3/
+    └── dataset_v5/
         ├── images/
         ├── labels/
         ├── drawio/
@@ -134,22 +137,27 @@ data/
         └── metadata.csv
 ```
 
-O dataset é gerado pelo projeto **FIAP Dataset Generator**.
+O generator produz automaticamente:
+
+- imagens PNG
+- labels YOLO
+- arquivos draw.io
+- previews
+- metadata.csv
+- dataset.yaml
 
 ---
 
 # Treinamento
 
-Execute:
+O treinamento foi realizado utilizando **Google Colab (GPU Tesla T4 gratuita)**.
 
-```bash
-python training/train_yolo.py
-```
+O projeto utiliza **fine-tuning**, reaproveitando um modelo previamente treinado para melhorar a detecção de componentes presentes em diagramas reais da AWS e Microsoft Azure.
 
-Após o treinamento, copie o modelo:
+Após o treinamento, copie:
 
 ```text
-runs/detect/train/weights/best.pt
+runs/.../weights/best.pt
 ```
 
 para:
@@ -163,7 +171,7 @@ models/best.pt
 # Executando a Aplicação
 
 ```bash
-python -m streamlit run app/streamlit_app.py
+streamlit run app/streamlit_app.py
 ```
 
 ---
@@ -208,33 +216,50 @@ PDF + Interface Streamlit
 
 # Classes Detectadas
 
-| Classe             | Descrição                |
-| ------------------ | ------------------------ |
-| user               | Usuário                  |
-| internet           | Internet                 |
-| firewall           | Firewall                 |
-| waf                | Web Application Firewall |
-| load_balancer      | Balanceador de Carga     |
-| api_gateway        | API Gateway              |
-| web_server         | Servidor Web             |
-| application_server | Servidor de Aplicação    |
-| microservice       | Microsserviço            |
-| database           | Banco de Dados           |
-| cache              | Cache                    |
-| queue              | Fila de Mensagens        |
-| object_storage     | Armazenamento de Objetos |
-| identity_provider  | Provedor de Identidade   |
-| monitoring         | Monitoramento            |
+| Classe | Descrição |
+|----------|------------------------|
+| user | Usuário |
+| internet | Internet |
+| firewall | Firewall |
+| waf | Web Application Firewall |
+| load_balancer | Balanceador de Carga |
+| api_gateway | API Gateway |
+| web_server | Servidor Web |
+| application_server | Servidor de Aplicação |
+| microservice | Microsserviço |
+| database | Banco de Dados |
+| cache | Cache |
+| queue | Fila de Mensagens |
+| object_storage | Armazenamento de Objetos |
+| identity_provider | Provedor de Identidade |
+| monitoring | Monitoramento |
 
 ---
 
-# Próximas Etapas
+# Funcionalidades
 
-* Treinar o modelo YOLOv8 utilizando o dataset sintético.
-* Melhorar a precisão da detecção de componentes.
-* Integrar IA Generativa para enriquecer a análise STRIDE.
-* Gerar relatórios técnicos em PDF.
-* Publicar a aplicação utilizando Streamlit.
+- Upload de diagramas PNG/JPG.
+- Detecção automática de componentes utilizando YOLOv8.
+- Ajuste do nível de confiança da detecção.
+- Geração da imagem anotada.
+- Análise de ameaças baseada no modelo STRIDE.
+- Geração automática de relatório técnico em PDF.
+- Interface Web desenvolvida com Streamlit.
+
+---
+
+# Resultados
+
+Após a evolução do dataset e do processo de fine-tuning, o modelo passou a reconhecer com maior precisão diagramas reais contendo componentes da AWS e Microsoft Azure, mantendo compatibilidade com diagramas genéricos.
+
+A estratégia adotada consistiu em:
+
+- geração automática de datasets sintéticos;
+- utilização de ícones oficiais AWS e Azure;
+- fine-tuning incremental do YOLOv8;
+- validação em diagramas reais.
+
+O modelo final apresentou desempenho consistente na identificação dos componentes utilizados pela aplicação, permitindo a execução completa do pipeline de análise STRIDE.
 
 ---
 

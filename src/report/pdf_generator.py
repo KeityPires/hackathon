@@ -81,9 +81,9 @@ def generate_pdf(report_items, output_path="reports/threat_model_report.pdf"):
 
     components = set(item["component"] for item in report_items)
 
-    write_text(pdf, f"Total de ameacas identificadas: {len(report_items)}")
+    write_text(pdf, f"Total de ameaças identificadas: {len(report_items)}")
     write_text(pdf, f"Componentes analisados: {len(components)}")
-    write_text(pdf, "Modelo de deteccao: YOLOv8")
+    write_text(pdf, "Modelo de detecção: YOLOv8")
     write_text(pdf, "Metodologia de analise: STRIDE")
 
     pdf.output(str(output_path))
