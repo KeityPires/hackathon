@@ -263,6 +263,26 @@ O modelo final apresentou desempenho consistente na identificação dos componen
 
 ---
 
+## Referências
+
+Este projeto foi desenvolvido utilizando como base as seguintes referências técnicas e recursos visuais:
+
+- AWS Architecture Diagram Templates (Miro)
+  https://miro.com/pt/modelos/diagramas-aws/
+
+- Microsoft Azure Architecture Icons
+  https://learn.microsoft.com/en-us/azure/architecture/icons/
+
+- AWS Icons
+  https://aws-icons.com/
+
+- Azure Icons
+  https://az-icons.com/
+
+## Créditos
+
+Os ícones utilizados para geração do dataset pertencem aos seus respectivos proprietários (Amazon Web Services e Microsoft) e foram utilizados exclusivamente para fins acadêmicos na construção do dataset do projeto.
+
 # Autor
 
 **Keity Pires**
